@@ -1,0 +1,30 @@
+[
+  {
+    "id": "price_1I8cPwHfZwu7jnpCjDoKbD8M",
+    "title": "Roar Roar Roar",
+    "description": "Who doesn't like dinosaurs",
+    "image": "/images/dino.webp",
+    "price": 20.0
+  },
+  {
+    "id": "price_1I8cXwHfZwu7jnpCKMU780oT",
+    "title": "Oops",
+    "description": "The best mistakes you'll find!",
+    "image": "/images/error.jpg",
+    "price": 1.0
+  },
+  {
+    "id": "price_1I8cYjHfZwu7jnpC5T7KB4ph",
+    "title": "Expensive",
+    "description": "If it were cheaper you wouldn't buy it!",
+    "image": "/images/toycar.jpeg",
+    "price": 30.0
+  },
+  {
+    "id": "price_1I8d1DHfZwu7jnpCXCRvZkZF",
+    "title": "Triceratops",
+    "description": "Cute dino",
+    "image": "/images/dinosaur2.png",
+    "price": 10.0
+  }
+]
