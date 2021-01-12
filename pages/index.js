@@ -25,6 +25,7 @@ export default function Home() {
               <a href="#" className={styles["card-content"]}>
                 <img src={product.image} alt="dinosaur" />
                 <h3>{product.title}</h3>
+                <p>${product.price}</p>
                 <p>{product.description}</p>
               </a>
             </li>
