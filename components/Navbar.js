@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { useCart } from "../hooks/use-cart";
 import styles from "../styles/Navbar.module.css";
 
 function Navbar() {
+  const { subtotal, checkout } = useCart();
   return (
     <nav className={styles.navbar}>
       <div className={styles["navbar-links"]}>
@@ -12,9 +14,9 @@ function Navbar() {
           </a>
         </div>
         <div>
-          <a href="#" className={styles["navbar-cart"]}>
+          <a href="#" onClick={checkout} className={styles["navbar-cart"]}>
             <FaShoppingCart />
-            <span>$ 0.00</span>
+            <span>${subtotal}</span>
           </a>
         </div>
       </div>
