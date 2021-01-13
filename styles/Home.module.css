@@ -98,8 +98,27 @@
 .card-content {
   display: grid;
   align-items: center;
-  grid-template-rows: 2fr 4rem 4rem 4rem;
+  grid-template-rows: 1fr 3rem 3rem 3rem 3rem;
+  grid-gap: 0.5rem;
   height: 100%;
+}
+.card-content p:last-child {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.button {
+  color: #fafafa;
+  font-family: inherit;
+  font-size: .9em;
+  font-weight: 700;
+  background-color: blueviolet;
+  padding: .8em 1.4em;
+  border-radius: .2em;
+  border: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  cursor: pointer;
 }
 
 .card:hover,
@@ -141,5 +160,17 @@
 @media (min-width: 1200px) {
   .grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .button {
+    color: #fafafa;
+    font-family: inherit;
+    font-size: .9em;
+    font-weight: 700;
+    background-color: blueviolet;
+    padding: .8em;
+    border-radius: .2em;
+    border: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+    cursor: pointer;
   }
 }
