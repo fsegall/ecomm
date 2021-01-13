@@ -27,7 +27,7 @@ export default function Home() {
           <p>
             <strong>Items:</strong> {totalItems}
           </p>
-          Total Cost: ${subtotal}
+          <strong>Total Cost:</strong>${subtotal}
           <button className={styles["button-cart"]} onClick={checkout}>
             <FaShoppingCart style={{ marginRight: "0.2rem" }} />{" "}
             <span>Check Out</span>
