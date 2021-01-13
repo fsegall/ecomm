@@ -1,10 +1,12 @@
+import { useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import products from "../products.json";
-import { initiateCheckout } from "../lib/payments";
+import useCart from "../hooks/use-cart.js";
 
 export default function Home() {
-  console.log(process.env.NEXT_PUBLIC_STRIPE_API_KEY);
+  const { subtotal, totalItems, addToCart, checkout } = useCart();
   return (
     <div className={styles.container}>
       <Head>
@@ -21,6 +23,17 @@ export default function Home() {
           The best place to buy ... on the web!
         </p>
 
+        <div className={styles.cart}>
+          <p>
+            <strong>Items:</strong> {totalItems}
+          </p>
+          Total Cost: ${subtotal}
+          <button className={styles["button-cart"]} onClick={checkout}>
+            <FaShoppingCart style={{ marginRight: "0.2rem" }} />{" "}
+            <span>Check Out</span>
+          </button>
+        </div>
+
         <ul className={styles.grid}>
           {products.map((product) => (
             <li key={product.id} className={styles.card}>
@@ -33,17 +46,10 @@ export default function Home() {
                   <button
                     className={styles.button}
                     onClick={() => {
-                      initiateCheckout({
-                        lineItems: [
-                          {
-                            price: product.id,
-                            quantity: 1,
-                          },
-                        ],
-                      });
+                      addToCart({ id: product.id });
                     }}
                   >
-                    Buy Now
+                    Add to Cart
                   </button>
                 </p>
               </a>
