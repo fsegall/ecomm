@@ -75,6 +75,7 @@ export default function Home() {
       return (
         <form className={styles.cartQuantity} onSubmit={handleOnSubmit}>
           <input
+            className={styles.input}
             name="quantity"
             type="number"
             min={0}

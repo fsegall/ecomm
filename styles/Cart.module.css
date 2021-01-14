@@ -36,6 +36,10 @@
   .table {
     font-size: 1.2rem;
   }
+
+  .input {
+    width: 20%;
+  }
   
   .footer {
     width: 100%;
