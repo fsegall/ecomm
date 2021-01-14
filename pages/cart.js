@@ -18,7 +18,7 @@ const columns = [
     Header: "Quantity",
   },
   {
-    columnId: "pricePerUnit",
+    columnId: "pricePerItem",
     Header: "Price Per Item",
   },
   {
