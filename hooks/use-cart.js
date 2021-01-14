@@ -78,7 +78,7 @@ export function useCartState() {
 
   function emptyCart() {
     window.localStorage.removeItem("The_Fantastic_Shop");
-    window.location.reload();
+    updateCart(defaultCart);
   }
 
   console.log(process.env.NEXT_PUBLIC_STRIPE_API_KEY);
