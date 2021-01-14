@@ -1,7 +1,8 @@
 import { FaShoppingCart } from "react-icons/fa";
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import products from "../products.json";
+import products from "../shared/products.json";
 import { useCart } from "../hooks/use-cart.js";
 
 export default function Home() {
@@ -36,22 +37,22 @@ export default function Home() {
         <ul className={styles.grid}>
           {products.map((product) => (
             <li key={product.id} className={styles.card}>
-              <a href="#" className={styles["card-content"]}>
-                <img src={product.image} alt="dinosaur" />
-                <h3>{product.title}</h3>
-                <p>${product.price}</p>
-                <p>{product.description}</p>
-                <p>
-                  <button
-                    className={styles.button}
-                    onClick={() => {
-                      addToCart({ id: product.id });
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                </p>
-              </a>
+              <Link href={`products/${product.id}`}>
+                <a className={styles["card-content"]}>
+                  <img src={product.image} alt="dinosaur" />
+                  <h3>{product.title}</h3>
+                  <p>${product.price}</p>
+                  <p>{product.description}</p>
+                </a>
+              </Link>
+              <button
+                className={styles.button}
+                onClick={() => {
+                  addToCart({ id: product.id });
+                }}
+              >
+                Add to Cart
+              </button>
             </li>
           ))}
         </ul>

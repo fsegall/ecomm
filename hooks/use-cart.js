@@ -1,5 +1,5 @@
-import { useState, createContext, useContext } from "react";
-import products from "../products.json";
+import { useState, createContext, useContext, useEffect } from "react";
+import products from "../shared/products.json";
 import { initiateCheckout } from "../lib/payments";
 
 const defaultCart = {
@@ -10,6 +10,21 @@ export const CartContext = createContext();
 
 export function useCartState() {
   const [cart, updateCart] = useState(defaultCart);
+
+  useEffect(() => {
+    const stateFromStorage = window.localStorage.getItem("The_Fantastic_Shop");
+
+    const data = stateFromStorage && JSON.parse(stateFromStorage);
+
+    if (data) {
+      updateCart(data);
+    }
+  }, []);
+
+  useEffect(() => {
+    const data = JSON.stringify(cart);
+    window.localStorage.setItem("The_Fantastic_Shop", data);
+  }, [cart]);
 
   // Price per product from json file
   const cartItems = Object.keys(cart.products).map((key) => {
@@ -32,6 +47,17 @@ export function useCartState() {
   }, 0);
 
   console.log(cartItems);
+
+  function updateItem({ id, quantity }) {
+    updateCart((prev) => {
+      let cartState = { ...prev };
+
+      if (cartState.products[id]) {
+        cartState.products[id].quantity = quantity;
+      }
+      return cartState;
+    });
+  }
 
   function addToCart({ id } = {}) {
     updateCart((prev) => {
@@ -62,15 +88,17 @@ export function useCartState() {
   }
   return {
     cart,
+    cartItems,
     updateCart,
     subtotal,
     totalItems,
     addToCart,
+    updateItem,
     checkout,
   };
 }
 
 export function useCart() {
-  const cart = useContext(CartContext);
+  const cart = useContext(CartContext); // consumer
   return cart;
 }
