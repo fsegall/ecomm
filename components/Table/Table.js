@@ -2,7 +2,6 @@ import styles from "./Table.module.css";
 
 const Table = ({ className, data, columns }) => {
   console.log("data", data);
-  console.log();
   let tableClassName = styles.table;
 
   if (className) {

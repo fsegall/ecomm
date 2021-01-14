@@ -75,12 +75,15 @@ export function useCartState() {
       return cartState;
     });
   }
+<<<<<<< HEAD
 
   function emptyCart() {
     window.localStorage.removeItem("The_Fantastic_Shop");
     updateCart(defaultCart);
   }
 
+=======
+>>>>>>> parent of a0560e8... Adds button to empty the cart
   console.log(process.env.NEXT_PUBLIC_STRIPE_API_KEY);
   function checkout() {
     initiateCheckout({
@@ -101,7 +104,6 @@ export function useCartState() {
     addToCart,
     updateItem,
     checkout,
-    emptyCart,
   };
 }
 

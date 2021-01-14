@@ -28,7 +28,7 @@ const columns = [
 ];
 
 export default function Home() {
-  const { cartItems, checkout, updateItem, emptyCart } = useCart();
+  const { cartItems, checkout, updateItem } = useCart();
 
   const data = cartItems.map(({ id, quantity, pricePerItem }) => {
     const product = products.find(({ id: pid }) => pid === id);
@@ -111,9 +111,6 @@ export default function Home() {
         <p className={styles.checkout}>
           <button className={styles.button} onClick={checkout}>
             Check Out
-          </button>
-          <button className={styles["button-cart-empty"]} onClick={emptyCart}>
-            Empty Cart
           </button>
         </p>
       </main>
