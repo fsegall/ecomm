@@ -1,6 +1,12 @@
-.table {
+  .table {
     width: 100%;
     border-spacing: 0;
+  }
+  @media (max-width: 600px) {
+    .table {
+      width: 300px;
+      border-spacing: 0;
+    }
   }
   
   .table thead td {
